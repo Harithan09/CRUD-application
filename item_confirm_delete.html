@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CRUD Application</title>
+</head>
+<body>
+    <header>
+        <h1>CRUD Application</h1>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <h1>Are you sure you want to delete "{{ item.name }}"?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirm</button>
+    </form>
+    <a href="{% url 'items:item_list' %}">Cancel</a>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CRUD Application</title>
+</head>
+<body>
+    <header>
+        <h1>CRUD Application</h1>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+  <h1>Item List</h1>
+  <a href="{% url 'items:item_create' %}">Add New Item</a>
+  <ul>
+    {% for item in items %}
+      <li>
+        <a href="{% url 'items:item_detail' item.id %}">{{ item.name }}</a>
+        <a href="{% url 'items:item_update' item.id %}">Edit</a>
+        <a href="{% url 'items:item_delete' item.id %}">Delete</a>
+      </li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

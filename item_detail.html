@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CRUD Application</title>
+</head>
+<body>
+    <header>
+        <h1>CRUD Application</h1>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+  <h1>{{ item.name }}</h1>
+  <p>Description: {{ item.description }}</p>
+  <p>Price: ${{ item.price }}</p>
+  <p>Created at: {{ item.created_at }}</p>
+  <a href="{% url 'items:item_update' item.id %}">Edit</a>
+  <a href="{% url 'items:item_delete' item.id %}">Delete</a>
+  <a href="{% url 'items:item_list' %}">Back to List</a>
+</body>
+</html>
